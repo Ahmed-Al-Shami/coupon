@@ -34,6 +34,7 @@ class CouponController extends Controller
             $query->where('place_category', $request->category);
         }
 
+        /* 
         // Proximity search (Haversine)
         if ($request->has(['lat', 'lng'])) {
             $lat = (float) $request->lat;
@@ -45,6 +46,7 @@ class CouponController extends Controller
                 ->selectRaw("(6371 * acos(cos(radians(?)) * cos(radians(latitude)) * cos(radians(longitude) - radians(?)) + sin(radians(?)) * sin(radians(latitude)))) AS distance", [$lat, $lng, $lat])
                 ->having('distance', '<=', $radius);
         }
+        */
 
         $sort = $request->sort ?? 'newest';
         switch ($sort) {
